@@ -2,8 +2,10 @@ import 'package:drift/drift.dart';
 
 import '../../../../core/database/app_database.dart';
 import '../models/pokemon_dto.dart';
+import '../../../../core/database/daos/pokemon_dao.dart';
 
 abstract interface class PokemonLocalDataSource {
+  Stream<List<PokemonCatalogRecord>> watchCatalog();
   Future<void> saveCatalogPage({
     required List<PokemonDto> pokemons,
     required int limit,
@@ -15,6 +17,11 @@ class DriftPokemonLocalDataSource implements PokemonLocalDataSource {
   final AppDatabase db;
 
   DriftPokemonLocalDataSource(this.db);
+
+  @override
+  Stream<List<PokemonCatalogRecord>> watchCatalog() {
+    return db.pokemonDao.watchCatalog();
+  }
 
   @override
   Future<void> saveCatalogPage({

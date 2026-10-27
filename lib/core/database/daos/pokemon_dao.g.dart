@@ -6,6 +6,8 @@ part of 'pokemon_dao.dart';
 mixin _$PokemonDaoMixin on DatabaseAccessor<AppDatabase> {
   $PokemonSpeciesTable get pokemonSpecies => attachedDatabase.pokemonSpecies;
   $PokemonsTable get pokemons => attachedDatabase.pokemons;
+  $TypesTable get types => attachedDatabase.types;
+  $PokemonTypesTable get pokemonTypes => attachedDatabase.pokemonTypes;
   PokemonDaoManager get managers => PokemonDaoManager(this);
 }
 
@@ -19,4 +21,8 @@ class PokemonDaoManager {
       );
   $$PokemonsTableTableManager get pokemons =>
       $$PokemonsTableTableManager(_db.attachedDatabase, _db.pokemons);
+  $$TypesTableTableManager get types =>
+      $$TypesTableTableManager(_db.attachedDatabase, _db.types);
+  $$PokemonTypesTableTableManager get pokemonTypes =>
+      $$PokemonTypesTableTableManager(_db.attachedDatabase, _db.pokemonTypes);
 }
