@@ -1,4 +1,4 @@
-package edu.pucmm.dexsync
+package edu.pucmm.pokedex
 
 import io.flutter.embedding.android.FlutterActivity
 
